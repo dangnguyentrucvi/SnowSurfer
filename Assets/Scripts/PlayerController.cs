@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     
     void Update()
     {
-        Vector2 = moveVector;
+        Vector2 moveVector;
         moveVector = moveAction.ReadValue<Vector2>();
         print(moveVector);
     }
