@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FinishLine : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class FinishLine : MonoBehaviour
         int layerIndex = LayerMask.NameToLayer("Player");
         if(collision.gameObject.layer == layerIndex)
         {
-            Debug.Log("The Player has won the game!");
+            SceneManager.LoadScene(0);
         }
     }
 }

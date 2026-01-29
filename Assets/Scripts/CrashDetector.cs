@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CrashDetector : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class CrashDetector : MonoBehaviour
         int layerIndex = LayerMask.NameToLayer("Floor");
         if(collision.gameObject.layer == layerIndex)
         {
-            Debug.Log("The Player has lost the game!");
+            SceneManager.LoadScene(0);
         }
     }
 }
