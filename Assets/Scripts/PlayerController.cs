@@ -4,23 +4,21 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
-{
-    InputAction moveAction;
-    RigidBody2D myRigidBody2D;
+{    
     [SerializeField] float torqueAmount = 1f;
-
+    InputAction moveAction;
+    Rigidbody2D myRigidbody2D;
     
     void Start()
     {
         moveAction = InputSystem.actions.FindAction("Move");
-        myRigidBody2D = GetComponent<RigidBody2D>();
+        myRigidbody2D = GetComponent<Rigidbody2D>();
     }
     
     void Update()
     {
         Vector2 moveVector;
         moveVector = moveAction.ReadValue<Vector2>();
-        myRigidBody2D.AddTorque(torqueAmount);
         
         if(moveVector.x < 0)
         {
@@ -29,7 +27,7 @@ public class PlayerController : MonoBehaviour
         
         else if(moveVector.x > 0)
         {
-            myRigidbody2D.AddTorque(torqueAmount*-1);
+            myRigidbody2D.AddTorque(-torqueAmount);
         }
     }
 }
